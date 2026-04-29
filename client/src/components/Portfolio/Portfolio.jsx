@@ -4,11 +4,25 @@ import { FaGithub, FaGitlab, FaExternalLinkAlt, FaFolder, FaGlobe } from 'react-
 import api from '../../utils/api';
 import './Portfolio.css';
 
-const ensureProtocol = (url) => {
-  if (!url) return url;
-  if (url.startsWith('http://') || url.startsWith('https://')) return url;
-  return `https://${url}`;
+const ensureProtocol = (url, includeFullURL = false) => {
+    if (!url) return url;
+    
+    // Si se solicita la URL completa, añadir https:// y dominio principal.
+    if (includeFullURL && !url.startsWith('http://') && !url.startsWith('https://')) {
+        // Supongamos que mxsolutions.online es el dominio base
+        const domain = "mxsolutions.online";
+        return `https://${domain}/${url}`;
+    }
+
+    // Si no se solicita la URL completa, simplemente retornar como está.
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+        return url;
+    }
+    
+    // Añadir solo el protocolo si no hay ninguno
+    return `https://${url}`;
 };
+
 
 const Portfolio = () => {
   const [projects, setProjects] = useState([]);
