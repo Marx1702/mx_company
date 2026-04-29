@@ -48,6 +48,14 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
+// Servir los archivos estáticos compilados de React (Frontend)
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+// Ruta comodín (Catch-all): cualquier petición que no sea de la API, devuelve el index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+});
+
 app.listen(PORT, () => {
   console.log(`🚀 Mx Solutions Server running on port ${PORT}`);
 });
