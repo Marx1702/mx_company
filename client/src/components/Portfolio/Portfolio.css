@@ -1,0 +1,198 @@
+/* ---- Portfolio Section ---- */
+.portfolio__filters {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.portfolio__filter {
+  padding: 8px 22px;
+  background: transparent;
+  color: var(--color-gray);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-gray-dark);
+  transition: all var(--transition-base);
+  text-transform: capitalize;
+}
+
+.portfolio__filter--active,
+.portfolio__filter:hover {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
+  margin-top: 20px;
+}
+
+.portfolio__card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.portfolio__card-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: var(--color-black-light);
+}
+
+.portfolio__card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.portfolio__card:hover .portfolio__card-image img {
+  transform: scale(1.08);
+}
+
+.portfolio__card-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--color-gray-dark);
+  background: linear-gradient(135deg, var(--color-black-light), var(--color-black-card));
+}
+
+.portfolio__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.portfolio__card:hover .portfolio__card-overlay {
+  opacity: 1;
+}
+
+.portfolio__card-overlay-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.portfolio__card-repo-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  background: var(--gradient-gold);
+  color: var(--color-black);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-fast);
+}
+
+.portfolio__card-repo-btn:hover {
+  transform: scale(1.05);
+}
+
+.portfolio__card-site-btn {
+  background: var(--gradient-silver);
+}
+
+.portfolio__card-body {
+  padding: 24px;
+}
+
+.portfolio__card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 8px;
+}
+
+.portfolio__card-desc {
+  font-size: 0.85rem;
+  color: var(--color-gray);
+  line-height: 1.6;
+  margin-bottom: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.portfolio__card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.portfolio__tech-tag {
+  padding: 3px 10px;
+  background: rgba(192, 192, 192, 0.08);
+  border: 1px solid rgba(192, 192, 192, 0.1);
+  border-radius: var(--radius-xl);
+  font-size: 0.72rem;
+  color: var(--color-silver);
+  font-weight: 500;
+}
+
+.portfolio__repo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--color-gold);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.portfolio__repo-link:hover {
+  color: var(--color-gold-light);
+  gap: 10px;
+}
+
+.portfolio__site-link {
+  color: var(--color-silver);
+}
+
+.portfolio__site-link:hover {
+  color: var(--color-white);
+}
+
+.portfolio__card-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.portfolio__empty {
+  text-align: center;
+  color: var(--color-gray-dark);
+  font-style: italic;
+  padding: 60px;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .portfolio__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio__card-image {
+    height: 200px;
+  }
+}

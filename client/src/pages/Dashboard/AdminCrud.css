@@ -1,0 +1,51 @@
+/* ---- Admin CRUD Pages ---- */
+.admin-crud__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.admin-crud__title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.admin-crud__subtitle {
+  color: var(--color-gray);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.admin-crud__table-wrapper {
+  background: var(--gradient-card);
+  border: var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.admin-crud__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.admin-crud__tech-tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .admin-crud__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-crud__table-wrapper {
+    overflow-x: auto;
+  }
+}

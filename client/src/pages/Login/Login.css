@@ -1,0 +1,112 @@
+/* ---- Login Page ---- */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-hero);
+  position: relative;
+  padding: 20px;
+}
+
+.login-page__glow {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--gradient-card);
+  border: var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  z-index: 1;
+}
+
+.login-card__header {
+  text-align: center;
+  padding: 40px 30px 24px;
+  border-bottom: 1px solid var(--color-gray-dark);
+}
+
+.login-card__logo {
+  font-family: var(--font-display);
+  font-size: 2rem;
+}
+
+.login-card__logo-mx {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+.login-card__logo-text {
+  color: var(--color-silver-light);
+  font-weight: 400;
+  margin-left: 6px;
+  font-size: 1.5rem;
+}
+
+.login-card__subtitle {
+  color: var(--color-gray);
+  font-size: 0.85rem;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.login-card__form {
+  padding: 30px;
+}
+
+.login-card__input-group {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.login-card__input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-gray);
+  font-size: 0.9rem;
+}
+
+.login-card__input {
+  width: 100%;
+  padding: 14px 18px 14px 44px;
+  background: var(--color-black);
+  border: 1px solid var(--color-gray-dark);
+  border-radius: var(--radius-md);
+  color: var(--color-white);
+  font-size: 0.95rem;
+  transition: all var(--transition-base);
+}
+
+.login-card__input:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.login-card__input::placeholder {
+  color: var(--color-gray-dark);
+}
+
+.login-card__btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px;
+  font-size: 1rem;
+}
