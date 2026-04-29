@@ -4,6 +4,12 @@ import { FaGithub, FaGitlab, FaExternalLinkAlt, FaFolder, FaGlobe } from 'react-
 import api from '../../utils/api';
 import './Portfolio.css';
 
+const ensureProtocol = (url) => {
+  if (!url) return url;
+  if (url.startsWith('http://') || url.startsWith('https://')) return url;
+  return `https://${url}`;
+};
+
 const Portfolio = () => {
   const [projects, setProjects] = useState([]);
   const [filter, setFilter] = useState('all');
