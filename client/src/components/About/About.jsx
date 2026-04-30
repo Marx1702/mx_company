@@ -159,7 +159,7 @@ const About = () => {
                     </div>
                     {spec.file_path && (
                       <a
-                        href={`http://localhost:5000${spec.file_path}`}
+                        href={spec.file_path}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="about__diploma-link"

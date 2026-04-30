@@ -4,22 +4,13 @@ import { FaGithub, FaGitlab, FaExternalLinkAlt, FaFolder, FaGlobe } from 'react-
 import api from '../../utils/api';
 import './Portfolio.css';
 
-const ensureProtocol = (url, includeFullURL = false) => {
+const ensureProtocol = (url) => {
     if (!url) return url;
-    
-    // Si se solicita la URL completa, añadir https:// y dominio principal.
-    if (includeFullURL && !url.startsWith('http://') && !url.startsWith('https://')) {
-        // Supongamos que mxsolutions.online es el dominio base
-        const domain = "mxsolutions.online";
-        return `https://${domain}/${url}`;
-    }
-
-    // Si no se solicita la URL completa, simplemente retornar como está.
+    // Si ya tiene protocolo, devolver tal cual
     if (url.startsWith('http://') || url.startsWith('https://')) {
         return url;
     }
-    
-    // Añadir solo el protocolo si no hay ninguno
+    // Añadir https:// si no tiene protocolo
     return `https://${url}`;
 };
 
@@ -88,7 +79,7 @@ const Portfolio = () => {
               <div className="portfolio__card-image">
                 {project.image_url ? (
                   <img
-                    src={`http://localhost:5000${project.image_url}`}
+                    src={project.image_url}
                     alt={project.project_name}
                     loading="lazy"
                   />
@@ -101,7 +92,7 @@ const Portfolio = () => {
                   <div className="portfolio__card-overlay-btns">
                     {project.site_url && (
                       <a
-                        href={project.site_url}
+                        href={ensureProtocol(project.site_url)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="portfolio__card-repo-btn portfolio__card-site-btn"
@@ -112,7 +103,7 @@ const Portfolio = () => {
                     )}
                     {project.repo_url && (
                       <a
-                        href={project.repo_url}
+                        href={ensureProtocol(project.repo_url)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="portfolio__card-repo-btn"
@@ -141,7 +132,7 @@ const Portfolio = () => {
                 <div className="portfolio__card-links">
                   {project.site_url && (
                     <a
-                      href={project.site_url}
+                      href={ensureProtocol(project.site_url)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="portfolio__repo-link portfolio__site-link"
@@ -152,7 +143,7 @@ const Portfolio = () => {
                   )}
                   {project.repo_url && (
                     <a
-                      href={project.repo_url}
+                      href={ensureProtocol(project.repo_url)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="portfolio__repo-link"

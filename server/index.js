@@ -52,7 +52,7 @@ app.get('/api/health', (req, res) => {
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // Ruta comodín (Catch-all): cualquier petición que no sea de la API, devuelve el index.html
-app.get('*', (req, res) => {
+app.get('{*path}', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
 });
 
