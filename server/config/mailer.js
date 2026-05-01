@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer');
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
 
 // Check if email credentials are properly configured
 const isMailConfigured = process.env.MAIL_USER &&

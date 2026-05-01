@@ -1,0 +1,20 @@
+# Hostinger Node.js Passenger Configuration
+# This file tells Apache/LiteSpeed to route all traffic through the Node.js app
+
+PassengerAppRoot "/home/u447396976/domains/mxsolutions.online/public_html"
+PassengerAppType node
+PassengerStartupFile app.js
+
+# Enable Passenger
+PassengerEnabled on
+PassengerFriendlyErrorPages on
+
+# Rewrite rules to ensure all requests go through Node.js
+RewriteEngine On
+
+# Do not apply rewrite rules to static assets served by the web server
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Route everything else through the Node.js application
+RewriteRule ^(.*)$ / [L,QSA]

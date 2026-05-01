@@ -1,0 +1,12 @@
+{
+  "name": "mx-solutions",
+  "version": "1.0.0",
+  "description": "Mx Solutions - Full Stack Corporate Platform",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
